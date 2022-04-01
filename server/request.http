@@ -1,0 +1,51 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username":"VinhXuan",
+    "password":"123"
+
+}
+
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username":"VinhXuan",
+    "password":"123"
+}
+###
+POST http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
+
+{
+    "title":"PT",
+    "description": "Shopping",
+    "url":"facebook.com/hadat921",
+    "status":"LEARNING"
+    
+}
+
+###
+GET http://localhost:5000/api/posts
+Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
+
+###
+PUT  http://localhost:5000/api/posts/6246bc682d6d689d9534f482
+Content-Type: application/json
+Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
+
+{
+    "title":"Vue",
+    "description":"Hihi",
+    "url":"https://youtube.com",
+    "status":"LEARNING"
+}
+
+###
+DELETE http://localhost:5000/api/posts/6246bc682d6d689d9534f482
+Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
+
+
