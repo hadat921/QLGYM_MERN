@@ -33,7 +33,7 @@ GET http://localhost:5000/api/posts
 Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
 
 ###
-PUT  http://localhost:5000/api/posts/6246bc682d6d689d9534f482
+PUT  http://localhost:5000/api/posts/624801e73b48d4944703f5bd
 Content-Type: application/json
 Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
 
@@ -45,7 +45,7 @@ Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZT
 }
 
 ###
-DELETE http://localhost:5000/api/posts/6246bc682d6d689d9534f482
+DELETE http://localhost:5000/api/posts/624801e73b48d4944703f5bd
 Authorization: Beare eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ1ZTE0MzZmNzBjYTQ5NWU2NTJlNjIiLCJpYXQiOjE2NDg3ODE0NjZ9.g3WRLP1ZIF115mY0KZ_irclBS6hvWQTi5oX1S2uETMo
 
 
