@@ -4,28 +4,33 @@ import Landing from './components/layout/Landing'
 import Auth from './views/Auth'
 import AuthContextProvider from './contexts/AuthContext'
 import Dashboard from './views/Dashboard'
+import ProtectedRoute from './components/routing/ProtectedRoute'
+import About from './views/About'
+import PostContextProvider from './contexts/PostContext'
 
 
 function App() {
   return (
     <AuthContextProvider>
+    <PostContextProvider><Router>
+
+<Switch>
+  <Route exact path="/">
+    <Landing />
+  </Route>
+  <Route exact path="/login" render={props => <Auth{...props} authRoute='login' />}>
+
+  </Route>
+  <Route exact path="/register" render={props => <Auth{...props} authRoute='register' />}>
+
+  </Route>
+  <ProtectedRoute exact path='/dashboard' component={Dashboard} />
+  <ProtectedRoute exact path='/about' component={About} />
+  
+</Switch>
+</Router></PostContextProvider>
       <div>
-        <Router>
-
-          <Switch>
-            <Route exact path="/">
-              <Landing />
-            </Route>
-            <Route exact path="/login" render={props => <Auth{...props} authRoute='login' />}>
-
-            </Route>
-            <Route exact path="/register" render={props => <Auth{...props} authRoute='register' />}>
-
-            </Route>
-            <Route exact path='/dashboard' ><Dashboard />
-            </Route>
-          </Switch>
-        </Router>
+        
       </div>
     </AuthContextProvider>
     /* <div>

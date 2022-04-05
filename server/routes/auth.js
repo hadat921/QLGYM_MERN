@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
         //check for existing user
         const user = await User.findOne({ username })
         if (user)
-            return res.status(400).json({ success: false, message: 'Username da co ng su dung' })
+            return res.status(400).json({ success: false, message: 'Tai khoan da ton tai' })
 
         //Done
         const hashedPassword = await argon2.hash(password)

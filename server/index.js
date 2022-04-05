@@ -2,10 +2,9 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
-const bodyParser = require('body-parser')
+
 const authRouter = require('./routes/auth')
 const postRouter = require('./routes/post')
-
 
 
 const connectDB = async () => {
@@ -32,7 +31,7 @@ const corsOptions = {
 }
 const app = express()
 app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.urlencoded({ extended: false }))
 // app.get('/cors', (req, res) => {
 //     res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 //     res.send({ "msg": "This has CORS enabled 🎈" })
@@ -41,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 
 app.use('/api/auth', cors(), authRouter)
-app.use('/api/posts', cors(), postRouter)
+app.use('/api/posts', cors(), postRouter) 
 
 app.get('/test', cors(), (req, res) => {
     res.send('test ok');
