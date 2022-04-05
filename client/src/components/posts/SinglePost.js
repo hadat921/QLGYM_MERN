@@ -16,8 +16,7 @@ const SinglePost = ({ post: { _id, status, title, description, url } }) => (
 				<Row>
 					<Col>
 						<p className='post-title'>{title}</p>
-						<Badge pillvariant={status === 'LEARNED'? 'success': status === 'LEARNING'? 'warning':'danger'
-							}
+						<Badge bg={status === 'LEARNED' ? 'success': (status === 'LEARNING' ? 'warning': 'danger')}
 						>
 							{status}
 						</Badge>
