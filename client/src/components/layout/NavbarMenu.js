@@ -37,18 +37,18 @@ const NavbarMenu = () => {
 			<Navbar.Collapse id='basic-navbar-nav'>
 				<Nav className='mr-auto'>
 					<Nav.Link
-						className='font-weight-bolder text-white'
+						className='font-weight-bolder text-white '
 						to='/dashboard'
 						as={Link}
 					>
-						Dashboard
+						LịchTập/Schedule
 					</Nav.Link>
 					<Nav.Link
 						className='font-weight-bolder text-white'
 						to='/about'
 						as={Link}
 					>
-						About
+						XemThêm
 					</Nav.Link>
 				</Nav>
 

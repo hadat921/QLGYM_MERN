@@ -57,7 +57,6 @@ const PostContextProvider = ({ children }) => {
 			console.log(error)
 		}
 	}
-
 	// Find post when user is updating post
 	const findPost = postId => {
 		const post = postState.posts.find(post => post._id === postId)

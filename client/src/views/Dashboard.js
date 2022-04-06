@@ -11,9 +11,11 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import Col from 'react-bootstrap/Col'
 import SinglePost from '../components/posts/SinglePost'
 // import AddPostModal from '../components/posts/AddPostModal'
-// import UpdatePostModal from '../components/posts/UpdatePostModal'
+import UpdatePostModal from '../components/posts/UpdatePostModal'
 import addIcon from '../assets/plus-circle-fill.svg'
 import AddPostModal from '../components/posts/AddPostModal'
+import { UPDATE_POST } from '../contexts/constants'
+//import UpdatePostModal from '../components/posts/UpdatePostModal'
 
 const Dashboard = () => {
 	// Contexts
@@ -86,7 +88,7 @@ const Dashboard = () => {
 return <div className='landing1'> <h1>{body} </h1> 
 
 <AddPostModal />
-
+{post !== null && <UpdatePostModal /> }
 {/* After post is added, show toast */}
 <Toast show={show} style={{position: 'fixed',top:'20%', right: '10px' }} className={`bg-${type} text-white`}
 	onClose={setShowToast.bind(this,{
