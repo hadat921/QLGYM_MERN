@@ -27,34 +27,40 @@ router.get('/', verifyToken, async (req, res) => {
 //@access Public
 
 router.post('/register', async (req, res) => {
-    const { username, password } = req.body
+	const { username, password, roleid } = req.body
 
-    //Simple validation
-    if (!username || !password)
-        return res.status(400).json({ success: false, message: 'Missing username or  password' })
-    try {
-        //check for existing user
-        const user = await User.findOne({ username })
-        if (user)
-            return res.status(400).json({ success: false, message: 'Tai khoan da ton tai' })
+	// Simple validation
+	if (!username || !password)
+		return res
+			.status(400)
+			.json({ success: false, message: 'Missing username and/or password' })
 
-        //Done
-        const hashedPassword = await argon2.hash(password)
-        const newUser = new User({ username, password: hashedPassword })
-        await newUser.save()
+	try {
+		// Check for existing user
+		const user = await User.findOne({ username })
 
-        //Return token
-        const accessToken = jwt.sign({ userId: newUser._id }, process.env.ACESS_TOKEN_SECRET)
-        res.json({ success: true, message: 'User created Success', accessToken })
+		if (user)
+			return res
+				.status(400)
+				.json({ success: false, message: 'Username already taken' })
 
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ success: false, message: 'Internal server error' })
+		// All good
+		const hashedPassword = await argon2.hash(password)
+		const newUser = new User({ username, password: hashedPassword, roleid})
+		await newUser.save()
 
-    }
-
-
+		// Return token
+		 const accessToken = jwt.sign({ userId: newUser._id }, process.env.ACESS_TOKEN_SECRET)
+                res.json({ success: true, message: 'User created Success', accessToken, roleid})
+		
+	} catch (error) {
+		console.log(error)
+		res.status(500).json({ success: false, message: 'Internal server error hihijjj' })
+	}
 })
+
+
+
 router.post('/login', async (req, res) => {
     const { username, password } = req.body
     if (!username || !password)
@@ -64,15 +70,14 @@ router.post('/login', async (req, res) => {
         const user = await User.findOne({ username })
         if (!user)
             return res.status(400).json({ success: false, message: 'Incorect user name ' })
-
         //Username found
         const passwordValid = await argon2.verify(user.password, password)
         if (!passwordValid)
             return res.status(400).json({ success: false, message: 'Incorect  password' })
 
         //Pass valid 
-        const accessToken = jwt.sign({ userId: user._id }, process.env.ACESS_TOKEN_SECRET)
-        res.json({ success: true, message: 'Login thanh cong', accessToken })
+        const accessToken = jwt.sign({ userId: user._id, roleid: user.roleid }, process.env.ACESS_TOKEN_SECRET)
+        res.json({ success: true, message: 'Login thanh cong', accessToken, roleid: user.roleid === "1" ? true : false })
 
 
     } catch (error) {

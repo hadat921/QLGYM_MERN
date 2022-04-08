@@ -13,7 +13,7 @@ const AddPostModal = () => {
       title: '',
       description: '',
       url: '',
-      status: 'TO LEARN'  
+      status: 'TỰ TẬP'  
     })
 
     const {title, description, url} = newPost
@@ -29,7 +29,7 @@ const AddPostModal = () => {
        setShowToast({show: true, message, type: success ? 'success': 'danger'})
     }
     const resetAddPostData = () => {
-        setNewPost({ title:'', description: '', url: '', status:'TO LEARN'})
+        setNewPost({ title:'', description: '', url: '', status:'GYM KÈM PT'})
         setShowAddPostModal(false)
     }
 
@@ -38,26 +38,26 @@ const AddPostModal = () => {
     return (
         <Modal show ={showAddPostModal} animation ={true} onHide = {closeDialog}> 
             <Modal.Header closeButton>
-                <Modal.Title>What do you want to learn?</Modal.Title>
+                <Modal.Title>Thêm khóa tập</Modal.Title>
             </Modal.Header>
             <Form onSubmit={onSubmit}>
                 <Modal.Body>
                     <Form.Group>
-                        <Form.Control type ='text' placeholder='Title' name ='title' required aria-describedby='title-help'
+                        <Form.Control type ='text' placeholder='Tiêu Đề' name ='title' required aria-describedby='title-help'
                         value={title}
                         onChange={onChangeNamePostForm}
                          />
-                        <Form.Text id='title-help' muted> Required</Form.Text>
+                        <Form.Text id='title-help' muted> Ghi chú</Form.Text>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Control as ='textarea' rows={3} placeholder='Description'
+                        <Form.Control as ='textarea' rows={3} placeholder='Thêm Chú Thích'
                         name='description'
                         value={description}
                         onChange={onChangeNamePostForm} />
                      </Form.Group>
                      <Form.Group>
-                         <Form.Control type = 'text' placeholder='Youtube Tutorial URL' 
+                         <Form.Control type = 'text' placeholder='Link video khóa tập' 
                              name = 'url'
                              value={url}
                         onChange={onChangeNamePostForm}
@@ -66,7 +66,7 @@ const AddPostModal = () => {
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant='secondary' onClick={closeDialog}> Cancel </Button>
-                    <Button variant ='primary' type='submit'>Learnit!
+                    <Button variant ='primary' type='submit'>Thêm khóa tập
                     </Button>
                 </Modal.Footer>
             </Form>

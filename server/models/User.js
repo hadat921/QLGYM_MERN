@@ -11,6 +11,12 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    roleid:{
+        type: String,
+        enum: ['1','0']
+        
+        
+        },
     createdAt: {
         type: Date,
         default: Date.now
@@ -18,4 +24,5 @@ const UserSchema = new Schema({
 })
 
 module.exports = mongoose.model('users', UserSchema)
+///users la table
 

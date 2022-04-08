@@ -49,20 +49,25 @@ useEffect(()=> loadUser(),[])
             if (response.data.success)
                 localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken)
                 await loadUser()
+                console.log ('current check',response.data)
+                
 
             return response.data
+            
 
         } catch (error) {
             if (error?.response?.data) return error?.response?.data
             else return { success: false, message: error.message }
 
         }
+        
 
     }
     //Register
     //Login
     const registerUser = async userForm => { 
         try {
+            userForm.roleid = 0;
             axios = axios.default
             const response = await axios(
                 {
@@ -76,7 +81,7 @@ useEffect(()=> loadUser(),[])
                 localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken)
                 await loadUser()
 
-            return response.data
+            return response.data // check admin true or false and handle
 
         } catch (error) {
             if (error?.response?.data) return error?.response?.data
@@ -85,6 +90,31 @@ useEffect(()=> loadUser(),[])
         }
 
     }
+    // DK Khach Hang
+    const DkkhUser = async userForm => { 
+        try {
+            axios = axios.default
+            const response = await axios(
+                {
+                    method: 'POST',
+                    url: `${apiUrl}/Kh/registerKH`,
+                    data: userForm,
+                    responseType: 'json',
+                }
+            )
+            
+           if (response.data.success)
+           localStorage.setItem(LOCAL_STORAGE_TOKEN_NAME, response.data.accessToken)
+           await loadUser()
+           return response.data
+          
+
+    
+        } catch (error) {
+    if (error?.response?.data) return error?.response?.data
+    else return { success: false, message: error.message }
+
+}}
 //LogOut
 // Logout
 const logoutUser = () => {
@@ -95,7 +125,7 @@ const logoutUser = () => {
     })
 }
     //Context data
-    const authContextData = { loginUser,registerUser,logoutUser, authState}
+    const authContextData = { loginUser,registerUser,logoutUser,DkkhUser, authState}
     //return components
     return (
         <AuthContext.Provider value={authContextData}>

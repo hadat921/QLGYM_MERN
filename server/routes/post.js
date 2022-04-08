@@ -11,10 +11,21 @@ const Post = require('../models/Post')
 router.get('/', verifyToken, async (req, res) => {
     try {
         const posts = await Post.find({ user: req.userId }).populate('user', ['username'])
+        console.log(req.roleid);
         res.json({ success: true, posts })
     } catch (error) {
         console.log(error)
-        res.status(500).json({ success: false, message: 'Internal error server 11' })
+        res.status(500).json({ success: false, message: 'Internal error server 12' })
+    }
+
+})
+router.get('/getAll', verifyToken, async (req, res) => {
+    try {
+        const posts = await Post.find({  })
+        res.json({ success: true, posts })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ success: false, message: 'Internal error server 11 hehe' })
     }
 
 })
@@ -33,11 +44,12 @@ router.post('/', verifyToken, async (req, res) => {
         //check url co bat dau = https khong, neu co thi lay luon url do, nguoc lai se tu them
         const newPost = new Post({
             title, description, url: (url.startsWith('https://')) ? url : `https://${url}`,
-            status: status || 'TO LEARN',
+            status: status || 'TỰ TẬP',
             user: req.userId
+            
         })
         await newPost.save()
-        res.json({ success: true, message: 'Chuc ban mau giam can', post: newPost })
+        res.json({ success: true, message: 'Thêm khóa tập thành công', post: newPost })
 
 
 
@@ -61,7 +73,7 @@ router.put('/:id', verifyToken, async (req, res) => {
             title,
             description: description || '',
             url: ((url.startsWith('https://')) ? url : `https://${url}`) || '',
-            status: status || 'TO LEARN'
+            status: status || 'GYM KÈM  PT'
         }
 
         const postUpdateCondition = { _id: req.params.id, user: req.userId }
@@ -87,7 +99,9 @@ router.put('/:id', verifyToken, async (req, res) => {
 // @access Private
 router.delete('/:id', verifyToken, async (req, res) => {
     try {
-        const postDeleteCondition = { _id: req.params.id, user: req.userId }
+       
+     
+        const postDeleteCondition = { _id: req.params.id}
         const deletedPost = await Post.findOneAndDelete(postDeleteCondition)
 
         //User not authorised or post not found 

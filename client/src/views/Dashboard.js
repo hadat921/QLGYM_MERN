@@ -14,12 +14,13 @@ import SinglePost from '../components/posts/SinglePost'
 import UpdatePostModal from '../components/posts/UpdatePostModal'
 import addIcon from '../assets/plus-circle-fill.svg'
 import AddPostModal from '../components/posts/AddPostModal'
-import { UPDATE_POST } from '../contexts/constants'
+//import { UPDATE_POST } from '../contexts/constants'
 //import UpdatePostModal from '../components/posts/UpdatePostModal'
 
 const Dashboard = () => {
 	// Contexts
-	const {authState: {user: { username }}} = useContext(AuthContext)
+	const {authState: {user: { username, roleid }}} = useContext(AuthContext)
+	
 
 	const {
 		postState: { post, posts, postsLoading },
@@ -40,12 +41,12 @@ const Dashboard = () => {
 				<Spinner animation='border' variant='info' />
 			</div>
 		)
-	} else if (posts.length === 0) {
+	} else if ( roleid==1) {
 		body = (
 			<>
-            
-				<Card className='text-center mx-5 my-5'>
-					<Card.Header as='h1'>Xin Chào {username}!</Card.Header>
+			
+                   {/* <Card className='text-center mx-5 my-5'>
+					<Card.Header as='h1'>Xin Chào {username},{roleid}!</Card.Header>
 					<Card.Body>
 						<Card.Title>Chào mừng bạn đến với GateWay Gym</Card.Title>
 						<Card.Text>
@@ -58,10 +59,24 @@ const Dashboard = () => {
 							LestGo!
 						</Button>
 					</Card.Body>
-				</Card>
+				</Card> */}
+				<Row className='row-cols-1 row-cols-md-3 g-4 mx-auto mt-3'>
+					{posts.map(post => (
+						<Col key={post._id} className='my-2'>
+							<SinglePost post={post} />
+						</Col>
+					))}
+				</Row>
+				<OverlayTrigger placement='left' overlay={<Tooltip>THÊM KHÓA TẬP THỂ DỤC  </Tooltip>}>
+				<Button className='btn-floating' onClick={setShowAddPostModal.bind(this,true)}>
+					<img src={addIcon} alt="add-post" width='60'height='60'/>
+				</Button>
+				</OverlayTrigger>
                 
 			</>
 		)
+		
+
 	} else {
 		body = (
 			<>
@@ -75,11 +90,7 @@ const Dashboard = () => {
 
 
 				{/* Open Add Post Moodal */}
-				<OverlayTrigger placement='left' overlay={<Tooltip>Add a mew thing to learn </Tooltip>}>
-				<Button className='btn-floating' onClick={setShowAddPostModal.bind(this,true)}>
-					<img src={addIcon} alt="add-post" width='60'height='60'/>
-				</Button>
-				</OverlayTrigger>
+				
 				
 			</>	)
 

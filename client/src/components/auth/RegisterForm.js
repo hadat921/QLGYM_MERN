@@ -21,8 +21,8 @@ const RegisterForm = () => {
      const register  = async event => {
          event.preventDefault()
          if(password!==confirmPassword){
-            setAlert({type:'danger',message:'Password khong khop'})
-            setTimeout(()=>setAlert(null),5000)
+            setAlert({ type:'danger' ,message: 'Password khong khop' })
+            setTimeout(()=> setAlert(null), 5000)
             return
          }
  
@@ -30,8 +30,8 @@ const RegisterForm = () => {
              const registerData = await registerUser(RegisterForm)
              if (!registerData.success) 
              {
-                 setAlert ({type:'danger', message:registerData.message})
-                 setTimeout(()=> setAlert(null),5000)
+                 setAlert ({ type:'danger', message: registerData.message })
+                 setTimeout(()=> setAlert(null), 5000)
  
              }
  

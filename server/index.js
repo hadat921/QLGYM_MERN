@@ -5,6 +5,7 @@ const cors = require('cors')
 
 const authRouter = require('./routes/auth')
 const postRouter = require('./routes/post')
+const KhRouter = require('./routes/Kh')
 
 
 const connectDB = async () => {
@@ -40,19 +41,20 @@ app.use(express.json())
 
 
 app.use('/api/auth', cors(), authRouter)
-app.use('/api/posts', cors(), postRouter) 
+app.use('/api/posts', cors(), postRouter)
+app.use('/api/KH', cors(), KhRouter)
 
-app.get('/test', cors(), (req, res) => {
-    res.send('test ok');
-})
+// app.get('/test', cors(), (req, res) => {
+//     res.send('test ok');
+// })
 
-app.post('/test', cors(), (req, res) => {
-    const { username, password } = req.body; 
-    console.log(req.body);
-    res.send({
-        username, password
-    });
-})
+// // app.post('/test', cors(), (req, res) => {
+// //     const { username, password } = req.body; 
+// //     console.log(req.body);
+// //     res.send({
+// //         username, password
+// //     });
+// })
 
 const PORT = 5000
 

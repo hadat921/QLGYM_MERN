@@ -8,10 +8,12 @@ const verifyToken = (req, res, next) => {
     //&& : neu k co authHeader thi no se la authHeader o tren, neu co thi no la authHeader sau &&
     const token = authHeader && authHeader.split(' ')[1]
     if (!token)
-        return res.status(401).json({ success: false, message: 'Access token not found' })
+        return res.status(401).json({ success: false, message: 'Access token not found11 hehe' })
 
     try {
         const decoded = jwt.verify(token, process.env.ACESS_TOKEN_SECRET)
+        console.log(decoded);
+        req.roleid = decoded.roleid
         req.userId = decoded.userId
         next()
         //AccessToken = object userId ben file auth.js

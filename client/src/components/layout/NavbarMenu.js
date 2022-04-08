@@ -13,6 +13,7 @@ const NavbarMenu = () => {
 	const {
 		authState: {
 			user: { username }
+			
 		},
 		logoutUser
 	} = useContext(AuthContext)
@@ -50,6 +51,14 @@ const NavbarMenu = () => {
 					>
 						XemThêm
 					</Nav.Link>
+					<Nav.Link
+						className='font-weight-bolder text-white'
+						to='/trangchu'
+						as={Link}
+					>
+						TrangChu
+					</Nav.Link>
+					
 				</Nav>
 
 				<Nav>
@@ -80,5 +89,6 @@ const NavbarMenu = () => {
 		</Navbar>
 	)
 }
+
 
 export default NavbarMenu

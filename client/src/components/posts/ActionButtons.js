@@ -3,20 +3,32 @@ import playIcon from '../../assets/play-btn.svg'
 import editIcon from '../../assets/pencil.svg'
 import deleteIcon from '../../assets/trash.svg'
 import { PostContext } from '../../contexts/PostContext'
-import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
+import { useContext, useState } from 'react'
 
-const ActionButtons = ({ url, _id }) => {
+
+
+const ActionButtons = ({ url, _id,  }) => {
+	
+	
 	const { deletePost, findPost, setShowUpdatePostModal } = useContext(
 		PostContext
 	)
+	
+	const {authState: {user: { username, roleid }}} = useContext(AuthContext)
 
 	const choosePost = postId => {
 		findPost(postId)
 		setShowUpdatePostModal(true)
 	}
+	 
+	
 
+
+	if(roleid == 1)
+	
 	return (
-		<>
+		<>	
 			<Button className='post-button' href={url} target='_blank'>
 				<img src={playIcon} alt='play' width='32' height='32' />
 			</Button>
@@ -28,6 +40,39 @@ const ActionButtons = ({ url, _id }) => {
 			</Button>
 		</>
 	)
+	
+	else
+	
+	{
+		return(<>
+		
+		         
+				<div id ="demo">Đăng kí khóa tập ngay!</div>
+				<Button type="button" >
+					Đăng Kí Khóa Tập
+				</Button>
+
+			
+
+				
+			
+				
+				</>
+
+
+				
+		
+		
+		)
+		
+
+		
+		};
+		
+	
+
+	
+	
 }
 
 export default ActionButtons

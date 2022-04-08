@@ -16,12 +16,14 @@ const PostSchema = new Schema({
     },
     status: {
         type: String,
-        enum: ['TO LEARN', 'LEARNING', 'LEARNED']
+        enum: ['TỰ TẬP', 'YOGA KÈM PT', 'GYM KÈM PT']
     },
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'users' ,//noi' vs table user  
 
     }
+    
+   
 })
 module.exports = mongoose.model('posts', PostSchema)

@@ -23,7 +23,7 @@ const PostContextProvider = ({ children }) => {
     // Get all posts
 	const getPosts = async () => {
 		try {
-			const response = await axios.get(`${apiUrl}/posts`)
+			const response = await axios.get(`${apiUrl}/posts/getAll`)
 			if (response.data.success) {
 				dispatch({ type: POSTS_LOADED_SUCCESS, payload: response.data.posts })
 			}

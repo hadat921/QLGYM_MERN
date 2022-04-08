@@ -24,13 +24,12 @@ const LoginForm = () => {
             const loginData = await loginUser(LoginForm)
             if (!loginData.success) {
                 // history.push('/dashboard')
-
-            }
-            else {
                 setAlert ({type:'danger', message:loginData.message})
                 setTimeout(()=> setAlert(null),5000)
 
             }
+            
+            
 
 
 
@@ -64,7 +63,14 @@ const LoginForm = () => {
                     <Button variant='info' size='sm' className='btn-regis ml-5'>Register</Button>
                 </Link>
             </p>
+           
+            <p >
+                Quay lại trang chủ
+                <Link to='/trangchu'>
+                    <Button variant='info' size='sm' className='btn-regis ml-5'>Quay lại trang chủ</Button>
+                </Link>
+            </p>
         </>
     )
 }
-export default LoginForm    
+export default LoginForm  

@@ -1,6 +1,6 @@
 import { Redirect } from 'react-router-dom'
 const Landing = () => {
-    return <Redirect to='/login' />
+    return <Redirect to='/trangchu'/>
 }
 export default Landing
 

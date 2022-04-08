@@ -59,7 +59,7 @@ const UpdatePostModal = () => {
 							onChange={onChangeUpdatedPostForm}
 						/>
 						<Form.Text id='title-help' muted>
-							Required
+							Discription
 						</Form.Text>
 					</Form.Group>
 					<Form.Group>
@@ -73,13 +73,18 @@ const UpdatePostModal = () => {
 						/>
 					</Form.Group>
 					<Form.Group>
+                    <Form.Text id='title-help' muted>
+							Xem thêm video về khóa tập
+						</Form.Text>
 						<Form.Control
 							type='text'
-							placeholder='Youtube Tutorial URL'
+                            aria-describedby='title-help'
+							placeholder='Xem thêm Video về khóa tập'
 							name='url'
 							value={url}
 							onChange={onChangeUpdatedPostForm}
 						/>
+                       
 					</Form.Group>
 					<Form.Group>
 						<Form.Control
@@ -88,9 +93,9 @@ const UpdatePostModal = () => {
 							name='status'
 							onChange={onChangeUpdatedPostForm}
 						>
-							<option value='TO LEARN'>TO LEARN</option>
-							<option value='LEARNING'>LEARNING</option>
-							<option value='LEARNED'>LEARNED</option>
+							<option value='GYM KÈM PT'>GYM KÈM PT</option>
+							<option value='YOGA KÈM PT'>YOGA KÈM PT</option>
+							<option value='TỰ TẬP'>TỰ TẬP </option>
 						</Form.Control>
 					</Form.Group>
 				</Modal.Body>
