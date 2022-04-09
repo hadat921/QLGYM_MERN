@@ -58,19 +58,22 @@ const trangchu = () => {
                 <h3>Với những dịch vụ cao cấp, đáp ứng mọi nhu cầu luyện tập và chăm sóc sức khỏe theo tiêu chuẩn 5 sao của giới thượng lưu, tham gia Hội Viên California Centuryon để tận hưởng những đặc quyền không giới hạn dành cho bạn ngay hôm nay!</h3>
     
                     <Button
-                    
+
                         variant='primary bg-dat btn-danger'
                         href='https://www.facebook.com/ha.dat.921/'
                         size='lg'
                     >
                         TÌM HIỂU THÊM
                     </Button>
+                    <div className='nam an' >
                     <p >
-                    Don't have an account?
+                   Don't have an account?
                     <Link to='/login'>
                         <Button variant='info' size='sm' className='btn-regis ml-5'>DangNhap</Button>
                     </Link>
+                    
                 </p>
+                </div>
                 <p >
                     Don't have an account?
                     <Link to='/register'>

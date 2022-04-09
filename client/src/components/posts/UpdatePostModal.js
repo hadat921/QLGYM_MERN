@@ -44,14 +44,14 @@ const UpdatePostModal = () => {
 	return (
 		<Modal show={showUpdatePostModal} onHide={closeDialog}>
 			<Modal.Header closeButton>
-				<Modal.Title>Making progress?</Modal.Title>
+				<Modal.Title>Thông Tin Khóa Tập</Modal.Title>
 			</Modal.Header>
 			<Form onSubmit={onSubmit}>
 				<Modal.Body>
 					<Form.Group>
 						<Form.Control
 							type='text'
-							placeholder='Title'
+							placeholder='Tên Khóa Tập'
 							name='title'
 							required
 							aria-describedby='title-help'
@@ -59,14 +59,14 @@ const UpdatePostModal = () => {
 							onChange={onChangeUpdatedPostForm}
 						/>
 						<Form.Text id='title-help' muted>
-							Discription
+							Ghi Chú
 						</Form.Text>
 					</Form.Group>
 					<Form.Group>
 						<Form.Control
 							as='textarea'
 							rows={3}
-							placeholder='Description'
+							placeholder='Ghi Chú'
 							name='description'
 							value={description}
 							onChange={onChangeUpdatedPostForm}
@@ -79,7 +79,7 @@ const UpdatePostModal = () => {
 						<Form.Control
 							type='text'
                             aria-describedby='title-help'
-							placeholder='Xem thêm Video về khóa tập'
+							placeholder='Link Video Khóa Tập'
 							name='url'
 							value={url}
 							onChange={onChangeUpdatedPostForm}
@@ -101,10 +101,10 @@ const UpdatePostModal = () => {
 				</Modal.Body>
 				<Modal.Footer>
 					<Button variant='secondary' onClick={closeDialog}>
-						Cancel
+						Hủy
 					</Button>
 					<Button variant='primary' type='submit'>
-						LearnIt!
+						Thêm
 					</Button>
 				</Modal.Footer>
 			</Form>

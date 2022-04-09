@@ -26,8 +26,8 @@ const NavbarMenu = () => {
 				<img
 					src={Logo}
 					alt='Logo'
-					width='70'
-					height='50'
+					width='30'
+					height='30'
 					className='mr-2'
 				/>
 				LEST GO!
@@ -56,14 +56,14 @@ const NavbarMenu = () => {
 						to='/trangchu'
 						as={Link}
 					>
-						TrangChu
+						TrangChủ
 					</Nav.Link>
 					
 				</Nav>
 
 				<Nav>
 					<Nav.Link className='font-weight-bolder text-black'
-                    style={{ marginLeft: 1250 }}  disabled>
+                    style={{ marginLeft: 1120 }}  disabled>
                         
 						Xin Chào {username}!
 					</Nav.Link>
