@@ -8,7 +8,7 @@ const postRouter = require('./routes/post')
 const KhRouter = require('./routes/Kh')
 
 
-const connectDB = async () => {
+const connectDB = async() => {
     try {
         await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@gateway-gym-mern.fwker.mongodb.net/gateway-gym-mern?retryWrites=true&w=majority`, {
             useNewUrlParser: true,
@@ -32,11 +32,11 @@ const corsOptions = {
 }
 const app = express()
 app.use(express.json())
-// app.use(bodyParser.urlencoded({ extended: false }))
-// app.get('/cors', (req, res) => {
-//     res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-//     res.send({ "msg": "This has CORS enabled 🎈" })
-// })
+    // app.use(bodyParser.urlencoded({ extended: false }))
+    // app.get('/cors', (req, res) => {
+    //     res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    //     res.send({ "msg": "This has CORS enabled 🎈" })
+    // })
 
 
 
@@ -56,6 +56,6 @@ app.use('/api/KH', cors(), KhRouter)
 // //     });
 // })
 
-const PORT = 5000
+const PORT = process.env.port || 5000
 
-app.listen(PORT, () => console.log("server chay tren cong:" + PORT)) 
+app.listen(PORT, () => console.log("server chay tren cong:" + PORT))
