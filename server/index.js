@@ -58,4 +58,4 @@ app.use('/api/KH', cors(), KhRouter)
 
 const PORT = process.env.port || 5000
 
-app.listen(PORT, () => console.log("server chay tren cong:" + PORT))
+app.listen(PORT, () => console.log("server chay tren cong hi:" + PORT))
