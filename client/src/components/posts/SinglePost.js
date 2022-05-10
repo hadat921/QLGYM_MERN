@@ -8,35 +8,41 @@ import { useContext, useEffect } from 'react'
 
 
 
-const SinglePost = ({ post: { _id, status, title, description, url,user}  }) => (
-	
-	
-	
-	<Card
-		className='shadow'
-		border={
-			status ==='GYM KÈM PT' ?'success' : status === 'YOGA KÈM PT' ? 'warning' : 'danger'
-		}
-	>
-		<Card.Body>
-			<Card.Title>
-				<Row>
-					<Col>
-						<p className='post-title'>{title}</p>
-						<Badge bg={status === 'GYM KÈM PT' ? 'success': (status === 'YOGA KÈM PT' ? 'warning': 'danger')}
-						>
-							{status}
-						</Badge>
-					</Col>
-					<Col className='text-right'>
-						<ActionButtons url={url} _id={_id} />
-						<p className='text-right'>CODE :{user}</p>
-					</Col>
-				</Row>
-			</Card.Title>
-			<Card.Text>{description}</Card.Text>
-		</Card.Body>
-	</Card>
+const SinglePost = ({ post: { _id, status, title, description, url, user } }) => (
+
+
+
+    <
+    Card className = 'shadow'
+    border = {
+        status === 'GYM KÈM PT' ? 'success' : status === 'YOGA KÈM PT' ? 'warning' : 'danger'
+    } >
+    <
+    Card.Body >
+    <
+    Card.Title >
+    <
+    Row >
+    <
+    Col >
+    <
+    p className = 'post-title' > { title } < /p> <
+    Badge bg = { status === 'GYM KÈM PT' ? 'success' : (status === 'YOGA KÈM PT' ? 'warning' : 'danger') } >
+    { status } <
+    /Badge> <
+    /Col> <
+    Col className = 'text-right' >
+    <
+    ActionButtons url = { url }
+    _id = { _id }
+    /> <
+    p className = 'text-right' > ID author: { user } < /p> <
+    /Col> <
+    /Row> <
+    /Card.Title> <
+    Card.Text > { description } < /Card.Text> <
+    /Card.Body> <
+    /Card>
 )
 
 export default SinglePost
