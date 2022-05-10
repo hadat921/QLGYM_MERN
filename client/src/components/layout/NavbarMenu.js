@@ -26,8 +26,8 @@ const NavbarMenu = () => {
 				<img
 					src={Logo}
 					alt='Logo'
-					width='30'
-					height='30'
+					width='70'
+					height='50'
 					className='mr-2'
 				/>
 				LEST GO!
@@ -42,28 +42,28 @@ const NavbarMenu = () => {
 						to='/dashboard'
 						as={Link}
 					>
-						LịchTập/Schedule
+						LỊCH.TẬP 
 					</Nav.Link>
 					<Nav.Link
 						className='font-weight-bolder text-white'
 						to='/about'
 						as={Link}
 					>
-						XemThêm
+						XEM.THÊM
 					</Nav.Link>
 					<Nav.Link
 						className='font-weight-bolder text-white'
 						to='/trangchu'
 						as={Link}
 					>
-						TrangChủ
+						TRANG.CHỦ
 					</Nav.Link>
 					
 				</Nav>
 
 				<Nav>
 					<Nav.Link className='font-weight-bolder text-black'
-                    style={{ marginLeft: 1120 }}  disabled>
+                    style={{ marginLeft: 500 }}  disabled>
                         
 						Xin Chào {username}!
 					</Nav.Link>

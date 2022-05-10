@@ -10,10 +10,40 @@
 }
 .landing2{
 	position: relative;
-	background: url('./assets/landing2.jpg') no-repeat center center/cover;
+	
+	/* background: url('./assets/landing2.jpg') no-repeat center center/cover; */
+	background: url('./assets/anhtrangden.jpg') no-repeat center center/cover;
 	height: 100vh;
 	text-shadow: black;
 	
+}
+#thongtinabout{
+	margin-top: 100px;
+	font-size: 40px;
+	color: rgb(255, 72, 0);
+}
+#thongtinabout1{
+	
+
+	color: rgb(255, 0, 0);
+}
+#right {
+	
+    color: white;
+	text-decoration: none
+
+}
+#chunoi{
+	margin-left: 70px;
+	margin-top: 320px;
+	float: left;
+	text-align: left;
+	font-size: 50px;
+	color: red;
+	text-decoration: none
+}
+#chu{
+	color: red;
 }
 
 .dark-overlay {
@@ -102,13 +132,20 @@ button.post-button.btn:active {
 .tooltip {
 	background: transparent;
 }
-
+#nutdangky{
+	width: 50%;
+	color:aliceblue;
+	background:red;
+}
 .tooltip .arrow::before {
 	border-left-color: #78c2ad;
 }
 
 .tooltip-inner {
 	background: #78c2ad;
+}
+#bgden{
+	background: #000000;
 }
 
 /* Post border thicker */
@@ -125,9 +162,13 @@ button.post-button.btn:active {
 
 .bg-dat{
 	background-image: linear-gradient(to left, rgba(53, 53, 53, 0), 
-  rgb(14, 12, 12));
+  rgb(0, 0, 0));
 }
 
 .bg-dat1{
-	color:rgb(77, 9, 9)
+	color:rgb(255, 0, 0)
 }
+#hinhbg1{
+	background: url('./assets/bg1.png') ;
+}
+

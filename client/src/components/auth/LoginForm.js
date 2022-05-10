@@ -44,30 +44,30 @@ const LoginForm = () => {
         <> <Form className='my-4' onSubmit={login}>
         <AlertMessage info={alert}/>
             <Form.Group>
-                <Form.Control className='mb-3' type='text' placeholder='Tài khoản' name='username' required
+                <Form.Control className='mb-3' type='text' placeholder='Nhập tài khoản' name='username' required
                     value={username}
                     onChange={onChangeLoginForm}
                 />
             </Form.Group>
             <Form.Group>
-                <Form.Control className='mb-3' type='password' placeholder='Mật khẩu' name='password' required
+                <Form.Control className='mb-3' type='password' placeholder='Nhập mật khẩu' name='password' required
                     value={password}
                     onChange={onChangeLoginForm}
                 />
             </Form.Group>
-            <Button variant='success' type='submit'>Đăng nhập</Button>
+            <Button variant='info' type='submit'>ĐĂNG NHẬP </Button>
         </Form>
             <p >
-                Bạn chưa có tài khoản?
+               
                 <Link to='/register'>
-                    <Button variant='info' size='sm' className='btn-regis ml-5'>Đăng ký</Button>
+                    <Button variant='info' size='sm' className='btn-regis ml-5'>ĐĂNG KÝ </Button>
                 </Link>
             </p>
            
             <p >
-                Quay lại trang chủ
+               
                 <Link to='/trangchu'>
-                    <Button variant='info' size='sm' className='btn-regis ml-5'>Quay lại trang chủ</Button>
+                    <Button variant='info' size='sm' className='btn-regis ml-5'>QUAY LẠI TRANG CHỦ</Button>
                 </Link>
             </p>
         </>

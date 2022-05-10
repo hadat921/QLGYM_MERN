@@ -69,11 +69,11 @@ router.post('/login', async (req, res) => {
         //check for existing user
         const user = await User.findOne({ username })
         if (!user)
-            return res.status(400).json({ success: false, message: 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại' })
+            return res.status(400).json({ success: false, message: 'Incorect user name ' })
         //Username found
         const passwordValid = await argon2.verify(user.password, password)
         if (!passwordValid)
-            return res.status(400).json({ success: false, message: 'Sai tài khoản hoặc mật khẩu, vui lòng kiểm tra lại' })
+            return res.status(400).json({ success: false, message: 'Incorect  password' })
 
         //Pass valid 
         const accessToken = jwt.sign({ userId: user._id, roleid: user.roleid }, process.env.ACESS_TOKEN_SECRET)

@@ -48,18 +48,18 @@ const RegisterForm = () => {
         <> <Form className='my-4' onSubmit={register}>
         <AlertMessage info={alert}/>
             <Form.Group>
-                <Form.Control className='mb-3' type='text' placeholder='Tài khoản' name='username' required value={username} onChange={onChangeRegisterForm}/>
+                <Form.Control className='mb-3' type='text' placeholder='Nhập tài khoản' name='username' required value={username} onChange={onChangeRegisterForm}/>
             </Form.Group>
             <Form.Group>
-                <Form.Control className='mb-3' type='password' placeholder='Mật khẩu' name='password' required value={password} onChange={onChangeRegisterForm}/>
+                <Form.Control className='mb-3' type='password' placeholder='Nhập mật khẩu' name='password' required value={password} onChange={onChangeRegisterForm}/>
             </Form.Group>
-            <Form.Control className='mb-3' type='password' placeholder='Xác nhận khẩu' name='confirmPassword' required value={confirmPassword} onChange={onChangeRegisterForm}/>
-            <Button variant='success' type='submit'>Đăng ký</Button>
+            <Form.Control className='mb-3' type='password' placeholder='Nhập lại mật khẩu' name='confirmPassword' required value={confirmPassword} onChange={onChangeRegisterForm}/>
+            <Button variant='success' type='submit'>ĐĂNG KÝ </Button>
         </Form>
             <p >
-                Đã có tài khoản rồi?
+                Đã có tài khoản ? <br></br><br></br>
                 <Link to='/login'>
-                    <Button variant='info' size='sm' className='btn-regis ml-5'>Đăng Nhập</Button>
+                    <Button variant='info' size='sm' className='btn-regis ml-5'>ĐĂNG NHẬP </Button>
                 </Link>
             </p>
         </>
